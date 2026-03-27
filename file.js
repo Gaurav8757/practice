@@ -88,6 +88,7 @@
 
 // express static serve 
 import express from 'express';
+import { createServer } from 'http2';
 import fs from "fs";
 import path  from "path";
 
@@ -96,10 +97,19 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const PORT = 3000;
+
+const config = {
+    port: PORT,
+    host: "localhost",
+    https: true,
+    key: fs.readFileSync(path.join(__dirname, "key.pem")),   
+    cert: fs.readFileSync(path.join(__dirname, "cert.pem")),   
+};
+
+
 const app = express();
-
-
-
+const server = createServer(app);
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
@@ -116,7 +126,7 @@ app.get("/hello", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+server.listen(3000, () => {
     console.log("Server started on port 3000");
 });
 
