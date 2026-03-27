@@ -1,0 +1,17 @@
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "main": "file.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch file.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "expres": "^0.0.5",
+    "express": "^5.2.1"
+  }
+}
