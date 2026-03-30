@@ -200,11 +200,11 @@ fs.createReadStream("hello.txt").pipe(zlib.createGzip()).pipe(fs.createWriteStre
 
 // VIDEO PLAY FROM PUBLIC FOLDER without controls
 app.get("/video", (req, res) => {
-//   const videoPath = path.join(__dirname, "public", "101731-video-1080.mp4");
-const mp3 = path.join(__dirname, "public", "mixkit-latin-lovers-39.mp3");
-  const stream = fs.createReadStream(mp3);
-//   res.writeHead(200, { "Content-Type": "video/mp4" });
-res.writeHead(200, {"Content-Type": "audio/mp3"});
+  const videoPath = path.join(__dirname, "public", "101731-video-1080.mp4");
+// const mp3 = path.join(__dirname, "public", "mixkit-latin-lovers-39.mp3");
+const stream = fs.createReadStream(videoPath);
+  res.writeHead(200, { "Content-Type": "video/mp4" });
+// res.writeHead(200, {"Content-Type": "audio/mp3"});
   stream.pipe(res);
 });
 
@@ -257,8 +257,11 @@ app.get("/hello", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log("Server started on port 3000");
+app.listen(3000, (err) => {
+    if(err){
+        console.log(err);
+    }
+    console.log(`Server started on port http://localhost:${PORT}/video`);
 });
 
 
