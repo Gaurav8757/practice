@@ -1,6 +1,6 @@
-1. app.listen() asal mein kya hai?
+ 1. app.listen() asal mein kya hai?
 
-Sach toh yeh hai ki app.listen() sirf ek shorthand (shortcut) hai. Jab aap app.listen(3000) likhte hain, toh Express internally wahi kaam karta hai jo aap manual tareeke se kar rahe hain:
+ Sach toh yeh hai ki app.listen() sirf ek shorthand (shortcut) hai. Jab aap app.listen(3000) likhte hain, toh Express internally wahi kaam karta hai jo aap manual tareeke se kar rahe hain:
 
 javascript
 // Yeh dono ek hi kaam karte hain
